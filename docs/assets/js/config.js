@@ -12,8 +12,8 @@ window.WEDDING_CONFIG = {
   venues: {
     ananya:       'https://www.google.com/maps/search/?api=1&query=Hotel+Ananya+Regency%2C+Ramnagar+Road%2C+Kashipur%2C+Uttarakhand',
     residence:    'https://www.google.com/maps/search/?api=1&query=R.K.+Hospital%2C+Ramnagar+Road%2C+Kashipur%2C+Uttarakhand',
-    sapphire:     'https://www.google.com/maps/search/?api=1&query=Sapphire+Hotel%2C+Haldwani%2C+Uttarakhand',
-    vintageGreen: 'https://www.google.com/maps/search/?api=1&query=Vintage+Green%2C+Haldwani%2C+Uttarakhand'
+    sapphire:     'https://maps.app.goo.gl/BQmDgFcPRVVGjYBt8',   // Hotel Blue Saphire Countryside, Rampur Rd, Haldwani
+    vintageGreen: 'https://maps.app.goo.gl/QHjCDtxtZUpSbkuM8'    // Vintage Greens Banquet Hall, Rampur Rd, Haldwani
   },
 
   // 3) Ask guests to reply by this date (shown on the reply card and the reminder bar).

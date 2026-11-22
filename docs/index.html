@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dr. Paras &amp; Dr. Pooja · Shubh Vivah · 4 December 2026</title>
-<meta name="description" content="You and your family are warmly invited to the wedding of Dr. Paras & Dr. Pooja — 3–6 December 2026, Kashipur & Haldwani. Kindly confirm your arrival. · डॉ. पारस एवं डॉ. पूजा के शुभ विवाह में आप सपरिवार सादर आमंत्रित हैं।">
+<meta name="description" content="You and your family are warmly invited to the wedding of Dr. Paras & Dr. Pooja — 4 December 2026, Haldwani. Kindly confirm your arrival. · डॉ. पारस एवं डॉ. पूजा के शुभ विवाह में आप सपरिवार सादर आमंत्रित हैं।">
 <meta name="theme-color" content="#2b0f26">
 
 <!-- Link previews (WhatsApp etc.). og:image must be an absolute URL — update if your repo name / domain differs. -->
@@ -31,6 +31,7 @@
     document.documentElement.dataset.lang = l;
     document.documentElement.lang = l;
     document.documentElement.classList.add('js');
+    try { if (new URLSearchParams(location.search).get('v') === '2') document.documentElement.dataset.edition = 'w'; } catch (e) {}
   })();
 </script>
 </head>
@@ -144,7 +145,7 @@
         </div>
         <svg class="divider gold" aria-hidden="true"><use href="#i-divider"/></svg>
         <p class="hero-date"><span class="hi">शुक्रवार, 4 दिसम्बर 2026</span><span class="en">Friday, 4 December 2026</span></p>
-        <p class="hero-place"><span class="hi">विंटेज ग्रीन, हल्द्वानी</span><span class="en">Vintage Green, Haldwani</span></p>
+        <p class="hero-place"><span class="hi">विंटेज ग्रीन्स, हल्द्वानी</span><span class="en">Vintage Greens, Haldwani</span></p>
         <p class="hero-invited"><span class="hi">आप सपरिवार सादर आमंत्रित हैं</span><span class="en">You and your family are cordially invited</span></p>
         <p class="days-left" id="daysLeft" hidden></p>
       </div>
@@ -183,7 +184,7 @@
           <legend class="q-label"><span class="qn" aria-hidden="true"></span><span class="hi">आप किस दिन पधारेंगे?</span><span class="en">When will you arrive?</span> <small class="q-sub"><span class="hi">दिसम्बर 2026</span><span class="en">December 2026</span></small></legend>
           <div class="chips chips-date">
             <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-02"><span><b>2</b><i><span class="hi">बुधवार</span><span class="en">Wed</span></i></span></label>
-            <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-03"><span><b>3</b><i><span class="hi">गुरुवार</span><span class="en">Thu</span></i><small><span class="hi">हल्दी-मेहंदी</span><span class="en">Haldi</span></small></span></label>
+            <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-03"><span><b>3</b><i><span class="hi">गुरुवार</span><span class="en">Thu</span></i><small class="ed-full"><span class="hi">हल्दी-मेहंदी</span><span class="en">Haldi</span></small></span></label>
             <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-04"><span><b>4</b><i><span class="hi">शुक्रवार</span><span class="en">Fri</span></i><small><span class="hi">विवाह</span><span class="en">Wedding</span></small></span></label>
             <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-05"><span><b>5</b><i><span class="hi">शनिवार</span><span class="en">Sat</span></i></span></label>
             <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-06"><span><b>6</b><i><span class="hi">रविवार</span><span class="en">Sun</span></i><small><span class="hi">प्रीतिभोज</span><span class="en">Reception</span></small></span></label>
@@ -331,11 +332,11 @@
           <h2 id="prog-title"><span class="hi">वैवाहिक कार्यक्रम</span><span class="en">The Celebrations</span></h2>
           <svg class="sprig flip" aria-hidden="true"><use href="#i-sprig"/></svg>
         </span>
-        <p class="sec-sub"><span class="hi">3 से 6 दिसम्बर 2026 · काशीपुर एवं हल्द्वानी</span><span class="en">3 – 6 December 2026 · Kashipur &amp; Haldwani</span></p>
+        <p class="sec-sub"><span class="hi"><span class="ed-full">3</span><span class="ed-w">4</span> से 6 दिसम्बर 2026 · काशीपुर एवं हल्द्वानी</span><span class="en"><span class="ed-full">3</span><span class="ed-w">4</span> – 6 December 2026 · Kashipur &amp; Haldwani</span></p>
       </header>
 
       <!-- 3 Dec · Haldi & Mehendi (yellow above, mehendi-green below — like its card) -->
-      <article class="day day-haldi reveal" id="day-3">
+      <article class="day day-haldi reveal ed-full" id="day-3">
         <div class="garland" aria-hidden="true"></div>
         <div class="day-head">
           <div class="datebox"><b>3</b><span class="hi">दिसम्बर</span><span class="en">Dec</span></div>
@@ -392,7 +393,7 @@
         </ul>
         <div class="note">
           <svg aria-hidden="true"><use href="#i-bus"/></svg>
-          <p><span class="hi">बारात बस द्वारा हमारे निवास स्थान, <b>आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर</b> से <b>सफायर होटल, हल्द्वानी</b> के लिए प्रस्थान करेगी।</span><span class="en">The baraat will travel by bus from our residence, <b>R. K. Hospital, Ramnagar Road, Kashipur</b>, to <b>Sapphire Hotel, Haldwani</b>.</span></p>
+          <p><span class="hi">बारात बस द्वारा हमारे निवास स्थान, <b>आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर</b> से <b>होटल ब्लू सफायर, हल्द्वानी</b> के लिए प्रस्थान करेगी।</span><span class="en">The baraat will travel by bus from our residence, <b>R. K. Hospital, Ramnagar Road, Kashipur</b>, to <b>Hotel Blue Saphire, Haldwani</b>.</span></p>
         </div>
         <ul class="schedule">
           <li><span class="ev"><span class="hi">लग्न समारोह</span><span class="en">Lagan ceremony</span></span><span class="dots"></span><span class="tm"><span class="hi">अपराह्न 3:00 बजे</span><span class="en">3:00 PM</span></span></li>
@@ -410,14 +411,16 @@
           <div class="venue">
             <div class="venue-txt">
               <small><span class="hi">बारात ठहराव</span><span class="en">Baraat stay</span></small>
-              <strong><span class="hi">सफायर होटल, हल्द्वानी</span><span class="en">Sapphire Hotel, Haldwani</span></strong>
+              <strong><span class="hi">होटल ब्लू सफायर</span><span class="en">Hotel Blue Saphire</span></strong>
+              <span><span class="hi">रामपुर रोड, हल्द्वानी</span><span class="en">Rampur Road, Haldwani</span></span>
             </div>
             <a class="btn-map" data-venue="sapphire" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg><span class="hi">नक्शा</span><span class="en">Map</span></a>
           </div>
           <div class="venue venue-main">
             <div class="venue-txt">
               <small><span class="hi">विवाह स्थल</span><span class="en">Wedding venue</span></small>
-              <strong><span class="hi">विंटेज ग्रीन, हल्द्वानी</span><span class="en">Vintage Green, Haldwani</span></strong>
+              <strong><span class="hi">विंटेज ग्रीन्स बैंक्वेट हॉल</span><span class="en">Vintage Greens Banquet Hall</span></strong>
+              <span><span class="hi">रामपुर रोड, हल्द्वानी</span><span class="en">Rampur Road, Haldwani</span></span>
             </div>
             <a class="btn-map" data-venue="vintageGreen" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg><span class="hi">नक्शा</span><span class="en">Map</span></a>
           </div>

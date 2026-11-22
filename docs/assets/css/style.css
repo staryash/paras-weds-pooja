@@ -82,6 +82,8 @@ body {
 body.locked { overflow: hidden; }
 img { max-width: 100%; display: block; }
 [hidden] { display: none !important; }
+/* ?v=2 link: wedding & reception only */
+:root[data-edition="w"] .ed-full, :root:not([data-edition="w"]) .ed-w { display: none !important; }
 a { color: inherit; }
 button { font: inherit; color: inherit; cursor: pointer; }
 .wrap { width: 100%; max-width: 760px; margin: 0 auto; padding-inline: 20px; }

@@ -38,7 +38,7 @@
       ticketYes: '<b>{name}</b> — {n} {g}, arriving {date}.', guest: 'guest', guests: 'guests',
       cal3: 'Haldi & Mehendi · Paras & Pooja', cal4: 'Wedding · Dr. Paras & Dr. Pooja', cal6: 'Sangeet & Reception · Paras & Pooja',
       cal3d: 'Haldi 11 AM–1 PM, lunch 2 PM, Mehendi 3–5 PM, tea 5–6 PM at the Swimming Pool, Hotel Ananya Regency, Ramnagar Road, Kashipur.\nBhaat & dinner 8–10 PM at our residence, R. K. Hospital, Ramnagar Road, Kashipur.',
-      cal4d: 'Ghudchadhi 9:30 AM; baraat leaves 10 AM by bus from R. K. Hospital, Ramnagar Road, Kashipur, for Sapphire Hotel, Haldwani.\nLagan 3 PM · Chadhat baraat 7 PM · Wedding rites at the auspicious muhurat at Vintage Green, Haldwani.',
+      cal4d: 'Ghudchadhi 9:30 AM; baraat leaves 10 AM by bus from R. K. Hospital, Ramnagar Road, Kashipur, for Hotel Blue Saphire, Rampur Road, Haldwani.\nLagan 3 PM · Chadhat baraat 7 PM · Wedding rites at the auspicious muhurat at Vintage Greens Banquet Hall, Rampur Road, Haldwani.',
       cal6d: 'Sangeet 5–7 PM, reception dinner from 7 PM at Hotel Ananya Regency, Ramnagar Road, Kashipur.',
       calSign: '\n\nWith love, the Sharma family · ',
       shareText: 'You are warmly invited to the wedding of Dr. Paras & Dr. Pooja (4 December 2026). Kindly confirm your arrival here:',
@@ -63,7 +63,7 @@
       ticketYes: '<b>{name}</b> — {n} {g}, आगमन {date}।', guest: 'सदस्य', guests: 'सदस्य',
       cal3: 'हल्दी एवं मेहंदी · पारस-पूजा', cal4: 'शुभ विवाह · डॉ. पारस एवं डॉ. पूजा', cal6: 'संगीत संध्या एवं प्रीतिभोज · पारस-पूजा',
       cal3d: 'हल्दी दोपहर 11–1 बजे, भोजन 2 बजे, मेहंदी 3–5 बजे, नाश्ता 5–6 बजे — स्विमिंग पूल, अनन्या रीजेंसी, रामनगर रोड, काशीपुर।\nभात एवं प्रीति भोज रात्रि 8–10 बजे — निज निवास, आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर।',
-      cal4d: 'घुड़चढ़ी प्रातः 9:30 बजे; बारात प्रातः 10 बजे बस द्वारा आर. के. हॉस्पिटल, काशीपुर से सफायर होटल, हल्द्वानी।\nलग्न 3 बजे · चढ़त बारात सायं 7 बजे · वैवाहिक कार्यक्रम शुभलग्नानुसार — विंटेज ग्रीन, हल्द्वानी।',
+      cal4d: 'घुड़चढ़ी प्रातः 9:30 बजे; बारात प्रातः 10 बजे बस द्वारा आर. के. हॉस्पिटल, काशीपुर से होटल ब्लू सफायर, रामपुर रोड, हल्द्वानी।\nलग्न 3 बजे · चढ़त बारात सायं 7 बजे · वैवाहिक कार्यक्रम शुभलग्नानुसार — विंटेज ग्रीन्स बैंक्वेट हॉल, रामपुर रोड, हल्द्वानी।',
       cal6d: 'संगीत संध्या सायं 5–7 बजे, प्रीतिभोज सायं 7 बजे से — अनन्या रीजेंसी, रामनगर रोड, काशीपुर।',
       calSign: '\n\nसस्नेह, शर्मा परिवार · ',
       shareText: 'डॉ. पारस एवं डॉ. पूजा के शुभ विवाह (4 दिसम्बर 2026) में आप सपरिवार सादर आमंत्रित हैं। कृपया यहाँ अपने आगमन की सूचना दें:',
@@ -123,7 +123,12 @@
   });
   function shareUrl() {
     var base = C.siteUrl || (location.origin + location.pathname);
-    try { var u = new URL(base); u.searchParams.set('lang', lang()); return u.toString(); } catch (e) { return base; }
+    try {
+      var u = new URL(base);
+      if (root.dataset.edition === 'w') u.searchParams.set('v', '2');   // shares keep the same version
+      u.searchParams.set('lang', lang());
+      return u.toString();
+    } catch (e) { return base; }
   }
 
   /* ------------------------------------------------------------------
@@ -204,7 +209,7 @@
 
   var CAL = {
     day3: { key: 'cal3', d: 'cal3d', start: '20261203T110000', end: '20261203T220000', loc: 'Hotel Ananya Regency, Ramnagar Road, Kashipur, Uttarakhand' },
-    day4: { key: 'cal4', d: 'cal4d', start: '20261204T093000', end: '20261204T235900', loc: 'R. K. Hospital, Ramnagar Road, Kashipur → Vintage Green, Haldwani' },
+    day4: { key: 'cal4', d: 'cal4d', start: '20261204T093000', end: '20261204T235900', loc: 'Vintage Greens Banquet Hall, Rampur Road, Haldwani, Uttarakhand' },
     day6: { key: 'cal6', d: 'cal6d', start: '20261206T170000', end: '20261206T220000', loc: 'Hotel Ananya Regency, Ramnagar Road, Kashipur, Uttarakhand' }
   };
   function updateCalLinks() {

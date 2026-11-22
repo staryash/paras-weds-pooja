@@ -62,16 +62,24 @@ If a family changes their reply, a new row is added. The newest row is the curre
 ## 2. Things to check in `config.js`
 
 - `replyBy`: the "kindly reply by" date (currently **30 Nov 2026**).
-- `venues`: map links. These are Google Maps searches that open the Maps app on phones.
-  For exact pins, open the place in Google Maps → **Share → Copy link**, and paste the `maps.app.goo.gl/…` link.
-  Please verify these, because I couldn't confirm them online:
+- `venues`: map links. Exact pins (from Google Maps → Share) are set for the wedding venue and the baraat stay:
 
   | key            | place |
   |----------------|-------|
-  | `ananya`       | Hotel Ananya Regency, Ramnagar Road, Kashipur (Haldi/Mehendi pool; Sangeet & reception) |
-  | `residence`    | R. K. Hospital, Ramnagar Road, Kashipur (residence, Bhaat, baraat departure) |
-  | `sapphire`     | Sapphire Hotel, Haldwani (baraat stay) |
-  | `vintageGreen` | Vintage Green, Haldwani (wedding venue) |
+  | `vintageGreen` | Vintage Greens Banquet Hall, Rampur Road, Haldwani (wedding venue) ✓ exact pin |
+  | `sapphire`     | Hotel Blue Saphire Countryside, Rampur Road, Haldwani (baraat stay) ✓ exact pin |
+  | `ananya`       | Hotel Ananya Regency, Ramnagar Road, Kashipur (Haldi/Mehendi pool; Sangeet & reception), Maps search |
+  | `residence`    | R. K. Hospital, Ramnagar Road, Kashipur (residence, Bhaat, baraat departure), Maps search |
+
+## Two links
+
+| Link | Shows |
+|------|-------|
+| `https://staryash.github.io/paras-weds-pooja/` | Everything, 3–6 Dec (with Haldi & Mehendi) |
+| `https://staryash.github.io/paras-weds-pooja/?v=2` | Wedding, baraat return and reception only, 4–6 Dec |
+
+Add `&lang=hi` (or `?lang=hi` on the first link) for Hindi. The `?v=2` page doesn't say anything was left out,
+and its Share button and language toggle keep `v=2`.
 
 ## 3. Publish on GitHub Pages
 
