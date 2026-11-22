@@ -37,6 +37,8 @@
       thanksYes: 'Heartfelt thanks', thanksYesMsg: 'Your arrival is eagerly awaited.',
       ticketYes: '<b>{name}</b> — {n} {g}, arriving {date}.', guest: 'guest', guests: 'guests',
       cal3: 'Haldi & Mehendi · Paras & Pooja', cal4: 'Wedding · Dr. Paras & Dr. Pooja', cal6: 'Sangeet & Reception · Paras & Pooja',
+      cal3w: 'Bhaat & Dinner · Paras & Pooja',
+      cal3wd: 'Bhaat ceremony & dinner, 8–10 PM at our residence, R. K. Hospital, Ramnagar Road, Kashipur.',
       cal3d: 'Haldi 11 AM–1 PM, lunch 2 PM, Mehendi 3–5 PM, tea 5–6 PM at the Swimming Pool, Hotel Ananya Regency, Ramnagar Road, Kashipur.\nBhaat & dinner 8–10 PM at our residence, R. K. Hospital, Ramnagar Road, Kashipur.',
       cal4d: 'Ghudchadhi 9:30 AM; baraat leaves 10 AM by bus from R. K. Hospital, Ramnagar Road, Kashipur, for Hotel Blue Saphire, Rampur Road, Haldwani.\nLagan 3 PM · Chadhat baraat 7 PM · Wedding rites at the auspicious muhurat at Vintage Greens Banquet Hall, Rampur Road, Haldwani.',
       cal6d: 'Sangeet 5–7 PM, reception dinner from 7 PM at Hotel Ananya Regency, Ramnagar Road, Kashipur.',
@@ -62,6 +64,8 @@
       thanksYes: 'हार्दिक आभार', thanksYesMsg: 'आपके शुभागमन की प्रतीक्षा रहेगी।',
       ticketYes: '<b>{name}</b> — {n} {g}, आगमन {date}।', guest: 'सदस्य', guests: 'सदस्य',
       cal3: 'हल्दी एवं मेहंदी · पारस-पूजा', cal4: 'शुभ विवाह · डॉ. पारस एवं डॉ. पूजा', cal6: 'संगीत संध्या एवं प्रीतिभोज · पारस-पूजा',
+      cal3w: 'भात एवं प्रीति भोज · पारस-पूजा',
+      cal3wd: 'भात एवं प्रीति भोज रात्रि 8–10 बजे — निज निवास, आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर।',
       cal3d: 'हल्दी दोपहर 11–1 बजे, भोजन 2 बजे, मेहंदी 3–5 बजे, नाश्ता 5–6 बजे — स्विमिंग पूल, अनन्या रीजेंसी, रामनगर रोड, काशीपुर।\nभात एवं प्रीति भोज रात्रि 8–10 बजे — निज निवास, आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर।',
       cal4d: 'घुड़चढ़ी प्रातः 9:30 बजे; बारात प्रातः 10 बजे बस द्वारा आर. के. हॉस्पिटल, काशीपुर से होटल ब्लू सफायर, रामपुर रोड, हल्द्वानी।\nलग्न 3 बजे · चढ़त बारात सायं 7 बजे · वैवाहिक कार्यक्रम शुभलग्नानुसार — विंटेज ग्रीन्स बैंक्वेट हॉल, रामपुर रोड, हल्द्वानी।',
       cal6d: 'संगीत संध्या सायं 5–7 बजे, प्रीतिभोज सायं 7 बजे से — अनन्या रीजेंसी, रामनगर रोड, काशीपुर।',
@@ -209,6 +213,7 @@
 
   var CAL = {
     day3: { key: 'cal3', d: 'cal3d', start: '20261203T110000', end: '20261203T220000', loc: 'Hotel Ananya Regency, Ramnagar Road, Kashipur, Uttarakhand' },
+    day3w: { key: 'cal3w', d: 'cal3wd', start: '20261203T200000', end: '20261203T220000', loc: 'R. K. Hospital, Ramnagar Road, Kashipur, Uttarakhand' },
     day4: { key: 'cal4', d: 'cal4d', start: '20261204T093000', end: '20261204T235900', loc: 'Vintage Greens Banquet Hall, Rampur Road, Haldwani, Uttarakhand' },
     day6: { key: 'cal6', d: 'cal6d', start: '20261206T170000', end: '20261206T220000', loc: 'Hotel Ananya Regency, Ramnagar Road, Kashipur, Uttarakhand' }
   };
