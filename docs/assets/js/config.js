@@ -4,7 +4,7 @@
 window.WEDDING_CONFIG = {
   // 1) Paste your Google Apps Script "Web app" URL (ends with /exec).
   //    Until this is filled in, the form runs in demo mode and saves nothing.
-  rsvpEndpoint: '',
+  rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbxKSWRG6H9yD9MIeKI1joWkPwZPErhtDikrW0aydCIMn_IyZ6ZsBfOuLKnyBmy2DqOkiQ/exec',
 
   // 2) Map links. These are Google Maps searches that open the Maps app on phones.
   //    For an exact pin: open the place in Google Maps → Share → Copy link,
@@ -17,7 +17,7 @@ window.WEDDING_CONFIG = {
   },
 
   // 3) Ask guests to reply by this date (shown on the reply card and the reminder bar).
-  replyBy: '2026-11-28',
+  replyBy: '2026-11-30',
 
   // Wedding day, for the "N days to go" line.
   weddingDate: '2026-12-04',

@@ -26,7 +26,7 @@ apps-script/Code.gs      ← paste into Google Apps Script (reply card → Sheet
    - optional: mobile, arrival time, blessing
 
    An "Unable to come? Send your blessings" link records a polite decline.
-   A slim "Kindly reply by 28 Nov" bar appears only while the card is off-screen and unanswered.
+   A slim "Kindly reply by 30 Nov" bar appears only while the card is off-screen and unanswered.
    On a later visit from the same phone, guests see "✓ We have your reply" with a **Change reply** button.
 4. Below the card follow the full invitation and lineage, the day-wise programme with map and calendar links, Nani ji's blessing and the family names.
 
@@ -61,7 +61,7 @@ If a family changes their reply, a new row is added. The newest row is the curre
 
 ## 2. Things to check in `config.js`
 
-- `replyBy`: the "kindly reply by" date (currently **28 Nov 2026**).
+- `replyBy`: the "kindly reply by" date (currently **30 Nov 2026**).
 - `venues`: map links. These are Google Maps searches that open the Maps app on phones.
   For exact pins, open the place in Google Maps → **Share → Copy link**, and paste the `maps.app.goo.gl/…` link.
   Please verify these, because I couldn't confirm them online:

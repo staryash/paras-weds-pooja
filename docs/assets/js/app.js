@@ -395,17 +395,11 @@
     }
     var body = new URLSearchParams();
     Object.keys(payload).forEach(function (k) { body.append(k, payload[k]); });
-    // Simple form POST (no CORS preflight). The Apps Script ignores repeats of the same `id`,
-    // so the opaque retry below can never create a duplicate row.
+    // Simple form POST (no CORS preflight). We only say "thank you" once the Sheet confirms.
+    // A retry after an error re-sends the same `id`, which the Apps Script ignores if already saved.
     return fetch(url, { method: 'POST', body: body, redirect: 'follow' })
       .then(function (r) { return r.json(); })
-      .then(function (j) { if (!j || !j.ok) throw new Error((j && j.error) || 'Server rejected'); return j; })
-      .catch(function (err) {
-        if (err instanceof TypeError) {
-          return fetch(url, { method: 'POST', mode: 'no-cors', body: body }).then(function () { return { ok: true, opaque: true }; });
-        }
-        throw err;
-      });
+      .then(function (j) { if (!j || !j.ok) throw new Error((j && j.error) || 'Server rejected'); return j; });
   }
 
   form.addEventListener('submit', function (e) {
