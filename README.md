@@ -76,7 +76,7 @@ If a family changes their reply, a new row is added. The newest row is the curre
 | Link | Shows |
 |------|-------|
 | `https://staryash.github.io/paras-weds-pooja/` | Everything, 3–6 Dec (with Haldi & Mehendi) |
-| `https://staryash.github.io/paras-weds-pooja/?v=2` | Same, but 3 Dec shows only the Bhaat & dinner evening at the residence (no Haldi & Mehendi) |
+| `https://staryash.github.io/paras-weds-pooja/?v=2` | Only the wedding day onwards (4–6 Dec): no Haldi, Mehendi or Bhaat. Arrival dates 2 & 3 Dec are still selectable. |
 
 Add `&lang=hi` (or `?lang=hi` on the first link) for Hindi. The `?v=2` page doesn't say anything was left out,
 and its Share button and language toggle keep `v=2`.
