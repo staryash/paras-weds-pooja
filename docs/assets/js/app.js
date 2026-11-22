@@ -250,6 +250,15 @@
   var form = $('#rsvpForm');
   var thanks = $('#thanks');
   var ticket = $('#ticket');
+  var replyHead = $('.reply-head');
+  // The card shows one of: the form (with its "kindly confirm" heading), the thank-you, or the
+  // "we have your reply" ticket. The request heading only belongs with the form.
+  function showCard(mode) {
+    form.hidden = mode !== 'form';
+    thanks.hidden = mode !== 'thanks';
+    ticket.hidden = mode !== 'ticket';
+    replyHead.hidden = mode !== 'form';
+  }
   var statusEl = $('#formStatus');
   var btn = $('#submitBtn');
   var kids = $('#f-kids');
@@ -434,7 +443,7 @@
   function showThanks(d, demo) {
     lastResult = { d: d, demo: demo };
     renderThanks();
-    form.hidden = true; ticket.hidden = true; thanks.hidden = false;
+    showCard('thanks');
     setStatus('');
     updateBar();
     $('#replyCard').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
@@ -450,7 +459,7 @@
   }
   $('#againBtn').addEventListener('click', function () {
     resetForm(); lastResult = null;
-    thanks.hidden = true; form.hidden = false;
+    showCard('form');
     replied = false; updateBar();
     $('#q-date').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
   });
@@ -465,7 +474,7 @@
   (function () {
     var p = savedReply();
     if (!p || !p.name || p.attending === 'no') return;  // ignore any older blessings-only reply
-    form.hidden = true; ticket.hidden = false;
+    showCard('ticket');
     renderTicket();
   })();
   langListeners.push(renderTicket);
@@ -486,7 +495,7 @@
       if (p.phone || p.arrivalTime || p.message) details.open = true;
     }
     renderCounts();
-    ticket.hidden = true; form.hidden = false;
+    showCard('form');
     replied = false; updateBar();
   });
 
