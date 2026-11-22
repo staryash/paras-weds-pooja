@@ -35,9 +35,7 @@
       demo: 'Preview mode: the Google Sheet is not connected yet, so this reply was not saved.',
       sArrival: 'Arrival', sTime: 'Time', sGuests: 'Guests', sAdults: 'Adults', sKids: 'Children',
       thanksYes: 'Heartfelt thanks', thanksYesMsg: 'Your arrival is eagerly awaited.',
-      thanksNo: 'Thank you for your blessings', thanksNoMsg: 'You will be dearly missed. Your blessings will reach the couple.',
       ticketYes: '<b>{name}</b> — {n} {g}, arriving {date}.', guest: 'guest', guests: 'guests',
-      ticketNo: '<b>{name}</b> — your blessings have reached us.',
       cal3: 'Haldi & Mehendi · Paras & Pooja', cal4: 'Wedding · Dr. Paras & Dr. Pooja', cal6: 'Sangeet & Reception · Paras & Pooja',
       cal3d: 'Haldi 11 AM–1 PM, lunch 2 PM, Mehendi 3–5 PM, tea 5–6 PM at the Swimming Pool, Hotel Ananya Regency, Ramnagar Road, Kashipur.\nBhaat & dinner 8–10 PM at our residence, R. K. Hospital, Ramnagar Road, Kashipur.',
       cal4d: 'Ghudchadhi 9:30 AM; baraat leaves 10 AM by bus from R. K. Hospital, Ramnagar Road, Kashipur, for Sapphire Hotel, Haldwani.\nLagan 3 PM · Chadhat baraat 7 PM · Wedding rites at the auspicious muhurat at Vintage Green, Haldwani.',
@@ -62,9 +60,7 @@
       demo: 'पूर्वावलोकन: गूगल शीट अभी जुड़ी नहीं है, इसलिए यह सूचना सहेजी नहीं गई।',
       sArrival: 'आगमन', sTime: 'समय', sGuests: 'कुल सदस्य', sAdults: 'बड़े', sKids: 'बच्चे',
       thanksYes: 'हार्दिक आभार', thanksYesMsg: 'आपके शुभागमन की प्रतीक्षा रहेगी।',
-      thanksNo: 'आपके आशीर्वाद के लिए आभार', thanksNoMsg: 'आपकी कमी अवश्य खलेगी। आपका आशीर्वाद वर-वधू तक पहुँचेगा।',
       ticketYes: '<b>{name}</b> — {n} {g}, आगमन {date}।', guest: 'सदस्य', guests: 'सदस्य',
-      ticketNo: '<b>{name}</b> — आपका आशीर्वाद हमें प्राप्त हो गया है।',
       cal3: 'हल्दी एवं मेहंदी · पारस-पूजा', cal4: 'शुभ विवाह · डॉ. पारस एवं डॉ. पूजा', cal6: 'संगीत संध्या एवं प्रीतिभोज · पारस-पूजा',
       cal3d: 'हल्दी दोपहर 11–1 बजे, भोजन 2 बजे, मेहंदी 3–5 बजे, नाश्ता 5–6 बजे — स्विमिंग पूल, अनन्या रीजेंसी, रामनगर रोड, काशीपुर।\nभात एवं प्रीति भोज रात्रि 8–10 बजे — निज निवास, आर. के. हॉस्पिटल, रामनगर रोड, काशीपुर।',
       cal4d: 'घुड़चढ़ी प्रातः 9:30 बजे; बारात प्रातः 10 बजे बस द्वारा आर. के. हॉस्पिटल, काशीपुर से सफायर होटल, हल्द्वानी।\nलग्न 3 बजे · चढ़त बारात सायं 7 बजे · वैवाहिक कार्यक्रम शुभलग्नानुसार — विंटेज ग्रीन, हल्द्वानी।',
@@ -264,7 +260,6 @@
   var lastResult = null, submitting = false;
 
   function toInt(v, d) { var n = parseInt(v, 10); return isNaN(n) ? d : n; }
-  function declining() { return form.classList.contains('declining'); }
   function chosenTotal() {
     var r = form.querySelector('input[name="totalChoice"]:checked');
     if (!r) return 0;
@@ -308,17 +303,6 @@
   $('#f-name').addEventListener('input', function () { clearErr('name'); });
   $('#f-phone').addEventListener('input', function () { clearErr('phone'); });
 
-  function setDeclining(on) {
-    form.classList.toggle('declining', on);
-    $('#f-attending').value = on ? 'no' : 'yes';
-    $('#declineNote').hidden = !on;
-    if (on) details.open = true;
-    ['arrivalDate', 'count'].forEach(clearErr);
-    setStatus('');
-  }
-  $('#declineBtn').addEventListener('click', function () { setDeclining(true); $('#f-name').focus(); });
-  $('#undeclineBtn').addEventListener('click', function () { setDeclining(false); $('#q-date').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' }); });
-
   function errEl(k) { return form.querySelector('[data-err="' + k + '"]'); }
   function setErr(k, key) {
     var el = errEl(k); if (!el) return;
@@ -338,7 +322,7 @@
 
   function readForm() {
     var fd = new FormData(form);
-    var att = declining() ? 'no' : 'yes';
+    var att = 'yes';
     var date = fd.get('arrivalDate') || '';
     if (date === 'other') date = fd.get('otherDate') || '';
     var tot = att === 'yes' ? chosenTotal() : 0;
@@ -360,13 +344,11 @@
   function validate(d) {
     var first = null;
     ['name', 'phone', 'arrivalDate', 'count'].forEach(clearErr);
-    if (d.attending === 'yes') {
-      var picked = form.querySelector('input[name="arrivalDate"]:checked');
-      if (!picked) { setErr('arrivalDate', 'errDate'); first = first || '#q-date'; }
-      else if (picked.value === 'other' && !parseISO(d.arrivalDate)) { setErr('arrivalDate', 'errOther'); first = first || '#f-otherDate'; }
-      if (!d.totalPeople) { setErr('count', 'errCount'); first = first || '#q-count'; }
-      else if (d.kids >= d.totalPeople) { setErr('count', 'errKids'); first = first || '#q-count'; }
-    }
+    var picked = form.querySelector('input[name="arrivalDate"]:checked');
+    if (!picked) { setErr('arrivalDate', 'errDate'); first = first || '#q-date'; }
+    else if (picked.value === 'other' && !parseISO(d.arrivalDate)) { setErr('arrivalDate', 'errOther'); first = first || '#f-otherDate'; }
+    if (!d.totalPeople) { setErr('count', 'errCount'); first = first || '#q-count'; }
+    else if (d.kids >= d.totalPeople) { setErr('count', 'errKids'); first = first || '#q-count'; }
     if (d.name.length < 2) { setErr('name', 'errName'); first = first || '#f-name'; }
     if (d.phone) {
       var digits = d.phone.replace(/\D/g, '');
@@ -433,12 +415,11 @@
 
   function renderThanks() {
     if (!lastResult) return;
-    var d = lastResult.d, l = lang(), yes = d.attending === 'yes';
-    $('#thanksTitle').textContent = t(yes ? 'thanksYes' : 'thanksNo');
+    var d = lastResult.d, l = lang();
+    $('#thanksTitle').textContent = t('thanksYes');
     $('#thanksName').textContent = d.name;
-    $('#thanksMsg').textContent = t(yes ? 'thanksYesMsg' : 'thanksNoMsg') + (lastResult.demo ? ' — ' + t('demo') : '');
+    $('#thanksMsg').textContent = t('thanksYesMsg') + (lastResult.demo ? ' — ' + t('demo') : '');
     var dl = $('#summary'); dl.innerHTML = '';
-    if (!yes) return;
     [[t('sArrival'), fmtDate(d.arrivalDate, l, 'full')],
      d.arrivalTime ? [t('sTime'), fmtTime(d.arrivalTime, l)] : null,
      [t('sGuests'), String(d.totalPeople)],
@@ -463,7 +444,7 @@
   function resetForm() {
     form.reset(); delete form.dataset.id;
     otherWrap.hidden = true; moreWrap.hidden = true; details.open = false;
-    setDeclining(false);
+    setStatus('');
     ['name', 'phone', 'arrivalDate', 'count'].forEach(clearErr);
     renderCounts();
   }
@@ -479,13 +460,11 @@
   function renderTicket() {
     var p = savedReply(); if (!p || ticket.hidden) return;
     var n = p.totalPeople;
-    $('#ticketBody').innerHTML = p.attending === 'no'
-      ? t('ticketNo', { name: esc(p.name) })
-      : t('ticketYes', { name: esc(p.name), n: n, g: t(n === 1 ? 'guest' : 'guests'), date: esc(fmtDate(p.arrivalDate, lang(), 'long')) });
+    $('#ticketBody').innerHTML = t('ticketYes', { name: esc(p.name), n: n, g: t(n === 1 ? 'guest' : 'guests'), date: esc(fmtDate(p.arrivalDate, lang(), 'long')) });
   }
   (function () {
     var p = savedReply();
-    if (!p || !p.name) return;
+    if (!p || !p.name || p.attending === 'no') return;  // ignore any older blessings-only reply
     form.hidden = true; ticket.hidden = false;
     renderTicket();
   })();
@@ -497,8 +476,7 @@
     $('#f-name').value = p.name || '';
     $('#f-phone').value = p.phone || '';
     $('#f-msg').value = p.message || '';
-    if (p.attending === 'no') setDeclining(true);
-    else {
+    {
       var dc = form.querySelector('input[name="arrivalDate"][value="' + (p.dateChoice || p.arrivalDate) + '"]');
       if (dc) { dc.checked = true; if (dc.value === 'other') { otherWrap.hidden = false; $('#f-otherDate').value = p.arrivalDate || ''; } }
       var tc = form.querySelector('input[name="totalChoice"][value="' + (p.totalChoice || '') + '"]');

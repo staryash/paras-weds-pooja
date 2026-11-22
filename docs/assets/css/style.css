@@ -417,15 +417,6 @@ input:focus, textarea:focus { outline: none; border-color: var(--gold-d); box-sh
 .form-status { margin: 10px 0 0; text-align: center; font-family: var(--f-ui); font-size: .95rem; }
 .form-status:empty { display: none; }
 .form-status.error { color: var(--err); }
-.decline-switch { margin: 8px 0 0; text-align: center; }
-
-/* decline mode: name + blessings only */
-.decline-only { display: none !important; }
-#rsvpForm.declining .attend-only { display: none !important; }
-#rsvpForm.declining .decline-only { display: inline-flex !important; }
-#rsvpForm.declining span.decline-only { display: inline !important; }
-.decline-note { margin: 0 0 18px; padding: 12px 14px; border-radius: 12px; background: rgba(110,29,68,.06); border: 1px solid rgba(110,29,68,.18); text-align: center; font-size: .98em; }
-.decline-note p { margin: 0; }
 
 /* already replied */
 .ticket { position: relative; z-index: 1; text-align: center; padding: 4px 0; }

@@ -178,12 +178,8 @@
         <input type="hidden" name="attending" id="f-attending" value="yes">
         <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
-        <div class="decline-note" id="declineNote" hidden>
-          <p><span class="hi">आपकी कमी अवश्य खलेगी। कृपया अपना नाम एवं वर-वधू के लिए आशीर्वाद भेजें।</span><span class="en">You will be dearly missed. Kindly send your name and your blessings for the couple.</span></p>
-        </div>
-
         <!-- Q: arrival date -->
-        <fieldset class="q attend-only" id="q-date">
+        <fieldset class="q" id="q-date">
           <legend class="q-label"><span class="qn" aria-hidden="true"></span><span class="hi">आप किस दिन पधारेंगे?</span><span class="en">When will you arrive?</span> <small class="q-sub"><span class="hi">दिसम्बर 2026</span><span class="en">December 2026</span></small></legend>
           <div class="chips chips-date">
             <label class="chip"><input type="radio" name="arrivalDate" value="2026-12-02"><span><b>2</b><i><span class="hi">बुधवार</span><span class="en">Wed</span></i></span></label>
@@ -201,7 +197,7 @@
         </fieldset>
 
         <!-- Q: how many -->
-        <fieldset class="q attend-only" id="q-count">
+        <fieldset class="q" id="q-count">
           <legend class="q-label"><span class="qn" aria-hidden="true"></span><span class="hi">कुल कितने लोग आएँगे?</span><span class="en">How many of you in all?</span> <small class="q-sub"><span class="hi">आप सहित</span><span class="en">including you</span></small></legend>
           <div class="chips chips-num">
             <label class="chip"><input type="radio" name="totalChoice" value="1"><span><b>1</b></span></label>
@@ -247,7 +243,7 @@
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" data-ph-hi="ताकि आवश्यकता पड़ने पर संपर्क कर सकें" data-ph-en="So we can reach you if needed">
               <p class="err" data-err="phone"></p>
             </div>
-            <div class="field attend-only">
+            <div class="field">
               <label for="f-time"><span class="hi">अनुमानित आगमन समय</span><span class="en">Approximate arrival time</span></label>
               <input id="f-time" name="arrivalTime" type="time">
             </div>
@@ -259,16 +255,10 @@
         </details>
 
         <button class="btn-submit" type="submit" id="submitBtn">
-          <span class="lbl attend-only"><span class="hi">सूचना भेजें</span><span class="en">Send our reply</span></span>
-          <span class="lbl decline-only"><span class="hi">आशीर्वाद भेजें</span><span class="en">Send our blessings</span></span>
+          <span class="lbl"><span class="hi">सूचना भेजें</span><span class="en">Send our reply</span></span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-
-        <p class="decline-switch">
-          <button type="button" class="link-btn attend-only" id="declineBtn"><span class="hi">आ न सकेंगे? अपना आशीर्वाद भेजें</span><span class="en">Unable to come? Send your blessings instead</span></button>
-          <button type="button" class="link-btn decline-only" id="undeclineBtn"><span class="hi">हम आ रहे हैं — आगमन की सूचना दें</span><span class="en">We will be coming after all</span></button>
-        </p>
       </form>
 
       <div class="thanks" id="thanks" hidden tabindex="-1">
